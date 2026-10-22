@@ -3,6 +3,7 @@
 User-agent: *
 Allow: /
 Disallow: /review.html
+Disallow: /yelp.html
 
 User-agent: Googlebot
 Allow: /
