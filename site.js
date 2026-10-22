@@ -5,17 +5,17 @@
 
   // hours + open status in McComb time
   var DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  var open=function(d){return d>=2&&d<=6};
+  var open=function(d){return d===0||(d>=2&&d<=6)};var shut=function(d){return d===0?1080:1200};var shutTxt=function(d){return d===0?'6 PM':'8 PM'};
   var wd=0,mins=0;
   try{var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
     var g=function(k){return p.filter(function(x){return x.type===k})[0].value};
     wd=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday'));mins=(+g('hour')%24)*60+(+g('minute'));}catch(e){var d=new Date();wd=d.getDay();mins=d.getHours()*60+d.getMinutes()}
-  var isOpen=open(wd)&&mins>=660&&mins<1200;
+  var isOpen=open(wd)&&mins>=660&&mins<shut(wd);
   var short=isOpen?'Open Now':(open(wd)&&mins<660?'Opens 11 AM':'Closed Now');
-  var long=isOpen?'Open now · until 8 PM':(open(wd)&&mins<660?'Opens today at 11 AM':'Closed now · Opens '+(function(){for(var i=1;i<8;i++){var d=(wd+i)%7;if(open(d))return(i===1?'tomorrow':DAYS[d])+' at 11 AM'}})());
+  var long=isOpen?'Open now · until '+shutTxt(wd):(open(wd)&&mins<660?'Opens today at 11 AM':'Closed now · Opens '+(function(){for(var i=1;i<8;i++){var d=(wd+i)%7;if(open(d))return(i===1?'tomorrow':DAYS[d])+' at 11 AM'}})());
   document.querySelectorAll('[data-status]').forEach(function(el){el.textContent=short;if(!isOpen)el.classList.add('closed')});
   document.querySelectorAll('[data-status-long]').forEach(function(el){el.textContent=long});
-  document.querySelectorAll('[data-hours]').forEach(function(tb){[2,3,4,5,6,0,1].forEach(function(d){var tr=document.createElement('tr');if(d===wd)tr.className='today';tr.innerHTML='<td>'+DAYS[d]+'</td><td>'+(open(d)?'11 AM – 8 PM':'Closed')+'</td>';tb.appendChild(tr)})});
+  document.querySelectorAll('[data-hours]').forEach(function(tb){[0,1,2,3,4,5,6].forEach(function(d){var tr=document.createElement('tr');if(d===wd)tr.className='today';tr.innerHTML='<td>'+DAYS[d]+'</td><td>'+(open(d)?'11 AM – '+shutTxt(d):'Closed')+'</td>';tb.appendChild(tr)})});
 
   // news slider arrows
   var track=document.querySelector('.news-track');
