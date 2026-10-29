@@ -22,9 +22,8 @@
 <meta name="color-scheme" content="light only">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap">
+<link rel="preload" href="fonts/ArchivoBlack.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Archivo-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -45,7 +44,7 @@
 </div></header>
 <main id="main">
 <section class="hero short"><div class="wrap"><div class="hero-frame">
-  <img decoding="async" src="img/rib-plate.webp" alt="A Rib Crib rib plate with sides" class="hero-img" fetchpriority="high">
+  <img decoding="async" src="img/rib-plate.webp" alt="A Rib Crib rib plate with sides" class="hero-img" width="1400" height="1050" srcset="img/rib-plate-800.webp 800w, img/rib-plate.webp 1400w" sizes="(max-width:700px) 100vw, 1200px" fetchpriority="high">
   <div class="hero-card">
     <p class="eyebrow">Check us out</p><h1>See What We Taste Like</h1>
     <p>Don&#39;t take our word for it. Here&#39;s what McComb, and folks passing through from all over, have said about the Wilson family&#39;s ribs, greens and desserts.</p>

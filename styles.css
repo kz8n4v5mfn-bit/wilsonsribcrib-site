@@ -1,4 +1,6 @@
 /* Wilsons Rib Crib & Express — chain-style restaurant site */
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/Archivo-var.woff2) format("woff2")}
+@font-face{font-family:"Archivo Black";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ArchivoBlack.woff2) format("woff2")}
 :root{
   --red:#c2231b; --red-dark:#99170f; --ember:#e0731c;
   --ink:#1b1310; --ink-soft:#5b4a40; --bg:#ffffff; --bg-2:#f6f1ea; --card:#ffffff; --line:#e6dccf;
