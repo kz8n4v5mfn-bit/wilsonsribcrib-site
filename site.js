@@ -5,7 +5,7 @@
 
   // hours + open status in McComb time
   var DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  var open=function(d){return d===0||(d>=2&&d<=6)};var shut=function(d){return d===0?1080:1200};var shutTxt=function(d){return d===0?'6 PM':'8 PM'};
+  var open=function(d){return true};var shut=function(d){return d===0?1080:1200};var shutTxt=function(d){return d===0?'6 PM':'8 PM'};
   var wd=0,mins=0;
   try{var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
     var g=function(k){return p.filter(function(x){return x.type===k})[0].value};
