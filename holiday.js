@@ -1,6 +1,6 @@
 /* Thanksgiving theme: banner, turkey, harvest row, falling leaves. Order link points at the holiday menu until the order page is live. */
 (function(){
-  var ORDER_HREF="holiday-order.html";
+  var ORDER_HREF="menu.html#holiday";
   var TURKEY='<svg viewBox="0 0 200 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'+
    '<g transform="translate(100 118)">'+
    [[-72,"#8c2e0f"],[-48,"#b5421a"],[-24,"#d9731c"],[0,"#e0a21f"],[24,"#d9731c"],[48,"#b5421a"],[72,"#8c2e0f"]].map(function(f){
