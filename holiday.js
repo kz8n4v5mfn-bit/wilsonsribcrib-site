@@ -1,6 +1,6 @@
 /* Thanksgiving theme: banner, turkey, harvest row, falling leaves. Order link points at the holiday menu until the order page is live. */
 (function(){
-  var ORDER_HREF="menu.html#holiday";
+  var ORDER_HREF="https://order.wilsonsribcrib.com/holiday.html";
   var TURKEY='<svg viewBox="0 0 200 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'+
    '<g transform="translate(100 118)">'+
    [[-72,"#8c2e0f"],[-48,"#b5421a"],[-24,"#d9731c"],[0,"#e0a21f"],[24,"#d9731c"],[48,"#b5421a"],[72,"#8c2e0f"]].map(function(f){
@@ -21,8 +21,9 @@
     var b=document.body;
     // banner
     var ban=document.createElement("div");ban.className="hol-banner";
-    ban.innerHTML=TURKEY.replace('viewBox','width="22" height="22" viewBox')+'Happy Thanksgiving from Wilsons Rib Crib. Order your holiday feast by Sat, Nov 21.<a href="'+ORDER_HREF+'">Holiday menu &rarr;</a>';
+    ban.innerHTML=TURKEY.replace('viewBox','width="22" height="22" viewBox')+'Happy Thanksgiving! Pre-orders are open now. Order your feast by Sat, Nov 21.<a href="'+ORDER_HREF+'">Order now &rarr;</a>';
     b.insertBefore(ban,b.firstChild);
+    var nav=document.getElementById("nav");if(nav){var na=document.createElement("a");na.href=ORDER_HREF;na.textContent="Holiday Orders";na.style.fontWeight="800";nav.insertBefore(na,nav.firstChild)}
     // hero turkey
     var hero=document.querySelector(".hero-frame");
     if(hero){var t=document.createElement("div");t.className="hol-turkey";t.innerHTML=TURKEY;hero.appendChild(t)}
@@ -30,7 +31,7 @@
     var foot=document.querySelector(".site-foot");
     if(foot){
       var h=document.createElement("section");h.className="hol-harvest";
-      h.innerHTML='<h2>Gather round for Thanksgiving</h2><p>Whole smoked turkey, seafood stuffed dressing, NOLA sweet potato pie and more. Order ahead and pick up Nov 24 or 25. We are closed Thanksgiving Day.</p><a class="btn red" href="'+ORDER_HREF+'">See the holiday menu</a><div class="hol-row">'+WHEAT+PUMPKIN+CORN+TURKEY.replace('<svg ','<svg class="tk" ')+CORN+PUMPKIN+WHEAT+'</div>';
+      h.innerHTML='<h2>Gather round for Thanksgiving</h2><p>Whole smoked turkey, seafood stuffed dressing, NOLA sweet potato pie and more. Order ahead and pick up Nov 24 or 25. We are closed Thanksgiving Day.</p><a class="btn red" href="'+ORDER_HREF+'">Pre-order your feast</a><div class="hol-row">'+WHEAT+PUMPKIN+CORN+TURKEY.replace('<svg ','<svg class="tk" ')+CORN+PUMPKIN+WHEAT+'</div>';
       foot.parentNode.insertBefore(h,foot);
     }
     // falling leaves
