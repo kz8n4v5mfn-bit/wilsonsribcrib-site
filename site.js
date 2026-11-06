@@ -41,3 +41,5 @@
     });
   });
 })();
+
+;(function(){try{var p=new URLSearchParams(location.search).get("position");var map={smoker:"Cook / Pitmaster",prep:"Prep",cashier:"Cashier / Front counter"};if(p&&map[p]){var sel=document.querySelector('select[name="position"]');if(sel)sel.value=map[p];}}catch(e){}})();
